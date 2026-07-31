@@ -259,6 +259,109 @@ fn parse_pptx_embedded_font_list(xml: &str) -> Vec<PptxEmbeddedFontEntry> {
     entries
 }
 
+/// Longest sanitised filename component, in bytes.
+///
+/// Font names are display strings, not identifiers; 64 bytes is far more than
+/// any real typeface needs and keeps `{name}-{style}.{ext}` well inside the
+/// 255-byte component limit every supported filesystem enforces.
+const MAX_FONT_NAME_COMPONENT: usize = 64;
+
+/// Windows device names, which cannot be used as a filename stem on that
+/// platform even with an extension appended.
+const WINDOWS_RESERVED_NAMES: &[&str] = &[
+    "CON", "PRN", "AUX", "NUL", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8",
+    "COM9", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9",
+];
+
+/// Reduce a document-supplied string to one plain, portable filename component.
+///
+/// `entry.font_name` (DOCX `w:name`) and `entry.typeface` / `variant.style`
+/// (PPTX) are copied verbatim out of the uploaded document. `Path::join`
+/// *replaces* the base path when handed an absolute path, and honours `..`
+/// otherwise, so an unsanitised name lets the document choose where the font
+/// file is written. Take the last segment and then allow-list characters rather
+/// than blocking known-bad ones, so anything unanticipated is inert by default.
+#[cfg_attr(target_arch = "wasm32", allow(dead_code))]
+fn sanitize_font_component(raw: &str) -> String {
+    // Split on every separator any supported platform recognises, plus `:`, so
+    // `a/b`, `..\\b`, `C:b`, and `/abs/b` all reduce to `b`. `rsplit` on a
+    // non-empty pattern set always yields at least one item.
+    let last = raw.rsplit(['/', '\\', ':']).next().unwrap_or_default();
+
+    // Allow-list: ASCII alphanumerics plus `-`, `_`, and space. `.` is
+    // deliberately excluded, which makes `.` and `..` unrepresentable and rules
+    // out extension spoofing; the real extension is appended by the caller from
+    // a closed enum. Every other character — NUL, control characters, the
+    // Windows reserved set `<>:"/\|?*`, and non-ASCII — becomes `_`.
+    let mut out = String::with_capacity(last.len().min(MAX_FONT_NAME_COMPONENT));
+    for character in last.chars() {
+        if out.len() >= MAX_FONT_NAME_COMPONENT {
+            break;
+        }
+        if character.is_ascii_alphanumeric() || matches!(character, '-' | '_' | ' ') {
+            out.push(character);
+        } else {
+            out.push('_');
+        }
+    }
+
+    // Windows silently strips trailing spaces from filenames, which would make
+    // two distinct names collide; a leading space is legal but confusing.
+    let trimmed = out.trim();
+    if trimmed.is_empty() {
+        return "font".to_string();
+    }
+    if WINDOWS_RESERVED_NAMES
+        .iter()
+        .any(|reserved| trimmed.eq_ignore_ascii_case(reserved))
+    {
+        return format!("_{trimmed}");
+    }
+    trimmed.to_string()
+}
+
+/// Join `filename` onto `dir`, refusing anything that is not a plain filename.
+///
+/// Defence in depth behind [`sanitize_font_component`]: the composed name must
+/// be exactly one normal path component, and the joined path must still sit
+/// directly inside `dir`. Returns `None` when either check fails.
+#[cfg(not(target_arch = "wasm32"))]
+fn font_output_path(dir: &Path, filename: &str) -> Option<PathBuf> {
+    use std::ffi::OsStr;
+    use std::path::Component;
+
+    let mut components = Path::new(filename).components();
+    match (components.next(), components.next()) {
+        (Some(Component::Normal(only)), None) if only == OsStr::new(filename) => {}
+        _ => return None,
+    }
+    let path = dir.join(filename);
+    if path.parent() != Some(dir) {
+        return None;
+    }
+    Some(path)
+}
+
+/// Make `candidate` unique within `used`, recording the result.
+///
+/// Sanitisation maps several distinct inputs onto the same component (`A/x` and
+/// `A\x` both become `x`), and a document may legitimately repeat a typeface.
+/// Without this, the later font silently overwrites the earlier one.
+#[cfg(not(target_arch = "wasm32"))]
+fn unique_font_filename(used: &mut std::collections::HashSet<String>, candidate: &str) -> String {
+    if used.insert(candidate.to_string()) {
+        return candidate.to_string();
+    }
+    let (stem, extension) = candidate.rsplit_once('.').unwrap_or((candidate, "ttf"));
+    for suffix in 2..=u32::MAX {
+        let alternative = format!("{stem}-{suffix}.{extension}");
+        if used.insert(alternative.clone()) {
+            return alternative;
+        }
+    }
+    unreachable!("u32::MAX distinct font filenames are unreachable in one document")
+}
+
 /// Extract GUID from a PPTX font file path like `ppt/fonts/{GUID}.fntdata`.
 fn extract_guid_from_font_path(path: &str) -> Option<String> {
     let filename = path.rsplit('/').next()?;
@@ -302,6 +405,7 @@ fn extract_pptx_fonts(data: &[u8]) -> Option<EmbeddedFontDir> {
     // Create temp dir
     let temp_dir = create_temp_font_dir("office2pdf-pptx-fonts")?;
     let mut font_count: usize = 0;
+    let mut used_filenames = std::collections::HashSet::new();
 
     for entry in &font_entries {
         for variant in &entry.variants {
@@ -344,8 +448,18 @@ fn extract_pptx_fonts(data: &[u8]) -> Option<EmbeddedFontDir> {
                 .map(|f| f.extension())
                 .unwrap_or("ttf");
 
-            let filename = format!("{}-{}.{}", entry.typeface, variant.style, ext);
-            let out_path = temp_dir.join(&filename);
+            // `typeface` and `style` are verbatim document strings; sanitise
+            // both before they can influence the output path.
+            let filename = format!(
+                "{}-{}.{}",
+                sanitize_font_component(&entry.typeface),
+                sanitize_font_component(&variant.style),
+                ext
+            );
+            let filename = unique_font_filename(&mut used_filenames, &filename);
+            let Some(out_path) = font_output_path(&temp_dir, &filename) else {
+                continue;
+            };
             if std::fs::write(&out_path, &font_data).is_ok() {
                 font_count += 1;
             }
@@ -458,6 +572,7 @@ fn extract_docx_fonts(data: &[u8]) -> Option<EmbeddedFontDir> {
 
     let temp_dir = create_temp_font_dir("office2pdf-docx-fonts")?;
     let mut font_count: usize = 0;
+    let mut used_filenames = std::collections::HashSet::new();
 
     for entry in &font_entries {
         for variant in &entry.variants {
@@ -497,8 +612,19 @@ fn extract_docx_fonts(data: &[u8]) -> Option<EmbeddedFontDir> {
                 .map(|f| f.extension())
                 .unwrap_or("ttf");
 
-            let filename = format!("{}-{}.{}", entry.font_name, variant.style, ext);
-            let out_path = temp_dir.join(&filename);
+            // `font_name` is the verbatim `w:name` attribute; sanitise it (and
+            // the style label, for symmetry with the PPTX path) before it can
+            // influence the output path.
+            let filename = format!(
+                "{}-{}.{}",
+                sanitize_font_component(&entry.font_name),
+                sanitize_font_component(&variant.style),
+                ext
+            );
+            let filename = unique_font_filename(&mut used_filenames, &filename);
+            let Some(out_path) = font_output_path(&temp_dir, &filename) else {
+                continue;
+            };
             if std::fs::write(&out_path, &font_data).is_ok() {
                 font_count += 1;
             }

@@ -296,22 +296,30 @@ mod integration {
 
     /// Build a minimal PPTX ZIP with an obfuscated embedded font.
     fn build_pptx_with_embedded_font(ttf_data: &[u8], guid: &str) -> Vec<u8> {
+        build_pptx_with_named_embedded_font(ttf_data, guid, "TestFont")
+    }
+
+    /// Build a minimal PPTX ZIP whose embedded font carries an arbitrary
+    /// `typeface`, so tests can drive the filename derived from it.
+    fn build_pptx_with_named_embedded_font(ttf_data: &[u8], guid: &str, typeface: &str) -> Vec<u8> {
         let buf = Vec::new();
         let cursor = Cursor::new(buf);
         let mut zip = ZipWriter::new(cursor);
         let options = FileOptions::default();
 
         // presentation.xml with embedded font list
-        let pres_xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+        let pres_xml = format!(
+            r#"<?xml version="1.0" encoding="UTF-8"?>
 <p:presentation xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"
                 xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
   <p:embeddedFontLst>
     <p:embeddedFont>
-      <p:font typeface="TestFont"/>
+      <p:font typeface="{typeface}"/>
       <p:regular r:id="rId5"/>
     </p:embeddedFont>
   </p:embeddedFontLst>
-</p:presentation>"#;
+</p:presentation>"#
+        );
         zip.start_file("ppt/presentation.xml", options).unwrap();
         zip.write_all(pres_xml.as_bytes()).unwrap();
 
@@ -342,6 +350,12 @@ mod integration {
 
     /// Build a minimal DOCX ZIP with an obfuscated embedded font.
     fn build_docx_with_embedded_font(ttf_data: &[u8], guid: &str) -> Vec<u8> {
+        build_docx_with_named_embedded_font(ttf_data, guid, "TestFont")
+    }
+
+    /// Build a minimal DOCX ZIP whose embedded font carries an arbitrary
+    /// `w:name`, so tests can drive the filename derived from it.
+    fn build_docx_with_named_embedded_font(ttf_data: &[u8], guid: &str, name: &str) -> Vec<u8> {
         let buf = Vec::new();
         let cursor = Cursor::new(buf);
         let mut zip = ZipWriter::new(cursor);
@@ -352,7 +366,7 @@ mod integration {
             r#"<?xml version="1.0" encoding="UTF-8"?>
 <w:fonts xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
          xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
-  <w:font w:name="TestFont">
+  <w:font w:name="{name}">
     <w:embedRegular w:fontKey="{guid}" r:id="rId1"/>
   </w:font>
 </w:fonts>"#
@@ -497,5 +511,194 @@ mod integration {
             // dir drops here
         };
         assert!(!path.exists(), "temp dir should be cleaned up on drop");
+    }
+
+    /// A unique absolute path outside any font temp dir, used as the target a
+    /// malicious document tries to write to.
+    fn escape_target(label: &str) -> std::path::PathBuf {
+        use std::time::{SystemTime, UNIX_EPOCH};
+        let unique = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos();
+        std::env::temp_dir().join(format!("office2pdf-escape-{label}-{unique}"))
+    }
+
+    #[test]
+    fn docx_font_name_cannot_traverse_out_of_the_temp_dir() {
+        let guid = "{AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE}";
+        let zip_data = build_docx_with_named_embedded_font(
+            &make_fake_ttf(64),
+            guid,
+            "../../../../../../tmp/office2pdf-escape-relative",
+        );
+
+        let dir = extract_embedded_fonts(&zip_data, crate::config::Format::Docx)
+            .expect("extraction still succeeds with a hostile font name");
+        let entries: Vec<_> = std::fs::read_dir(dir.path())
+            .unwrap()
+            .filter_map(Result::ok)
+            .collect();
+        assert_eq!(entries.len(), 1, "the font stays inside the temp dir");
+        assert_eq!(
+            entries[0].path().parent(),
+            Some(dir.path()),
+            "the font is a direct child of the temp dir"
+        );
+        let name = entries[0].file_name().into_string().unwrap();
+        assert!(
+            !name.contains('/') && !name.contains('\\') && !name.contains(".."),
+            "sanitised filename keeps no traversal syntax: {name}"
+        );
+        assert!(!std::path::Path::new("/tmp/office2pdf-escape-relative-regular.ttf").exists());
+    }
+
+    #[test]
+    fn docx_absolute_font_name_cannot_choose_the_output_path() {
+        let guid = "{AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE}";
+        let target = escape_target("docx-absolute");
+        let zip_data = build_docx_with_named_embedded_font(
+            &make_fake_ttf(64),
+            guid,
+            &target.to_string_lossy(),
+        );
+
+        let dir = extract_embedded_fonts(&zip_data, crate::config::Format::Docx)
+            .expect("extraction still succeeds with an absolute font name");
+        let written = format!("{}-regular.ttf", target.display());
+        assert!(
+            !std::path::Path::new(&written).exists(),
+            "nothing was written at the absolute path the document asked for"
+        );
+        let entries: Vec<_> = std::fs::read_dir(dir.path())
+            .unwrap()
+            .filter_map(Result::ok)
+            .collect();
+        assert_eq!(entries.len(), 1);
+        assert_eq!(entries[0].path().parent(), Some(dir.path()));
+    }
+
+    #[test]
+    fn pptx_typeface_cannot_traverse_out_of_the_temp_dir() {
+        let guid = "{7B19B49C-2336-4F82-AAD2-5D2BAE389560}";
+        let target = escape_target("pptx-absolute");
+        let zip_data = build_pptx_with_named_embedded_font(
+            &make_fake_ttf(128),
+            guid,
+            &target.to_string_lossy(),
+        );
+
+        let dir = extract_embedded_fonts(&zip_data, crate::config::Format::Pptx)
+            .expect("extraction still succeeds with a hostile typeface");
+        let written = format!("{}-regular.ttf", target.display());
+        assert!(!std::path::Path::new(&written).exists());
+        let entries: Vec<_> = std::fs::read_dir(dir.path())
+            .unwrap()
+            .filter_map(Result::ok)
+            .collect();
+        assert_eq!(entries.len(), 1);
+        assert_eq!(entries[0].path().parent(), Some(dir.path()));
+    }
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+mod filename_sanitisation {
+    use super::*;
+    use std::collections::HashSet;
+    use std::path::Path;
+
+    #[test]
+    fn keeps_ordinary_font_names_readable() {
+        assert_eq!(
+            sanitize_font_component("Times New Roman"),
+            "Times New Roman"
+        );
+        assert_eq!(sanitize_font_component("Noto_Sans-Bold"), "Noto_Sans-Bold");
+    }
+
+    #[test]
+    fn reduces_any_path_to_its_last_segment() {
+        assert_eq!(sanitize_font_component("../../../etc/passwd"), "passwd");
+        assert_eq!(sanitize_font_component("/tmp/PWNED"), "PWNED");
+        assert_eq!(
+            sanitize_font_component(r"..\..\Windows\System32"),
+            "System32"
+        );
+        assert_eq!(sanitize_font_component(r"C:\Windows\evil"), "evil");
+    }
+
+    #[test]
+    fn dot_segments_are_unrepresentable() {
+        // `.` is not on the allow-list, so neither `.` nor `..` can survive.
+        assert_eq!(sanitize_font_component(".."), "__");
+        assert_eq!(sanitize_font_component("."), "_");
+        assert_eq!(sanitize_font_component("evil.ttf"), "evil_ttf");
+    }
+
+    #[test]
+    fn replaces_control_characters_and_non_ascii() {
+        assert_eq!(sanitize_font_component("a\0b"), "a_b");
+        assert_eq!(sanitize_font_component("a\nb"), "a_b");
+        assert_eq!(sanitize_font_component("héllo"), "h_llo");
+        assert_eq!(sanitize_font_component("a*b?c|d\"e<f>g"), "a_b_c_d_e_f_g");
+    }
+
+    #[test]
+    fn empty_and_whitespace_only_names_get_a_fallback() {
+        assert_eq!(sanitize_font_component(""), "font");
+        assert_eq!(sanitize_font_component("   "), "font");
+        assert_eq!(sanitize_font_component("/"), "font");
+        // A character that is merely replaced still yields a usable filename.
+        assert_eq!(sanitize_font_component("\0"), "_");
+    }
+
+    #[test]
+    fn trims_surrounding_whitespace() {
+        assert_eq!(sanitize_font_component("  Arial  "), "Arial");
+    }
+
+    #[test]
+    fn escapes_windows_device_names() {
+        assert_eq!(sanitize_font_component("CON"), "_CON");
+        assert_eq!(sanitize_font_component("nul"), "_nul");
+        assert_eq!(sanitize_font_component("LPT9"), "_LPT9");
+        assert_eq!(sanitize_font_component("CONSOLE"), "CONSOLE");
+    }
+
+    #[test]
+    fn bounds_the_component_length() {
+        let long = "A".repeat(4096);
+        assert_eq!(sanitize_font_component(&long).len(), 64);
+    }
+
+    #[test]
+    fn font_output_path_rejects_anything_but_a_plain_filename() {
+        let dir = Path::new("/tmp/office2pdf-fonts");
+        assert_eq!(
+            font_output_path(dir, "Arial-regular.ttf"),
+            Some(dir.join("Arial-regular.ttf"))
+        );
+        assert_eq!(font_output_path(dir, "../escape.ttf"), None);
+        assert_eq!(font_output_path(dir, "sub/dir.ttf"), None);
+        assert_eq!(font_output_path(dir, "/absolute.ttf"), None);
+        assert_eq!(font_output_path(dir, ".."), None);
+        assert_eq!(font_output_path(dir, ""), None);
+    }
+
+    #[test]
+    fn unique_font_filename_disambiguates_collisions() {
+        let mut used = HashSet::new();
+        assert_eq!(
+            unique_font_filename(&mut used, "Arial-regular.ttf"),
+            "Arial-regular.ttf"
+        );
+        assert_eq!(
+            unique_font_filename(&mut used, "Arial-regular.ttf"),
+            "Arial-regular-2.ttf"
+        );
+        assert_eq!(
+            unique_font_filename(&mut used, "Arial-regular.ttf"),
+            "Arial-regular-3.ttf"
+        );
     }
 }
