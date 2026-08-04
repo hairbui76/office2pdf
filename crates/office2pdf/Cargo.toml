@@ -32,7 +32,12 @@ zip = { version = "0.6", default-features = false, features = ["deflate"] }
 quick-xml = "0.38"
 umya-spreadsheet = "2"
 unicode-normalization = "0.1"
-image = "0.25"
+# default-features would pull in `default-formats`, whose avif (rav1e, a
+# whole AV1 encoder) and exr decoders are ~2.7 MB of code no Office document
+# can contain. The list below is every format the parsers actually hand to
+# image::load_from_memory* (png/jpeg/gif/bmp/tiff, plus webp which docx can
+# embed); rayon stays for decode parallelism.
+image = { version = "0.25", default-features = false, features = ["rayon", "bmp", "gif", "jpeg", "png", "tiff", "webp"] }
 tracing = "0.1"
 wasm-bindgen = { version = "0.2", optional = true }
 ts-rs = { version = "12", optional = true }
