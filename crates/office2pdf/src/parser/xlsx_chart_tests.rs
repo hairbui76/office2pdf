@@ -13,15 +13,15 @@ fn build_xlsx_with_chart(cells: &[(&str, &str)], chart_xml: &str) -> Vec<u8> {
 
         for i in 0..archive.len() {
             let mut entry = archive.by_index(i).unwrap();
-            let options: zip::write::FileOptions =
-                zip::write::FileOptions::default().compression_method(entry.compression());
+            let options: zip::write::SimpleFileOptions =
+                zip::write::SimpleFileOptions::default().compression_method(entry.compression());
             writer
                 .start_file(entry.name().to_string(), options)
                 .unwrap();
             std::io::copy(&mut entry, &mut writer).unwrap();
         }
 
-        let options: zip::write::FileOptions = zip::write::FileOptions::default();
+        let options: zip::write::SimpleFileOptions = zip::write::SimpleFileOptions::default();
         writer.start_file("xl/charts/chart1.xml", options).unwrap();
         use std::io::Write;
         writer.write_all(chart_xml.as_bytes()).unwrap();
@@ -173,7 +173,7 @@ fn build_xlsx_with_anchored_chart(
     {
         let cursor = std::io::Cursor::new(&mut out_buf);
         let mut writer = zip::ZipWriter::new(cursor);
-        let options: zip::write::FileOptions = zip::write::FileOptions::default();
+        let options: zip::write::SimpleFileOptions = zip::write::SimpleFileOptions::default();
 
         for i in 0..archive.len() {
             let mut entry = archive.by_index(i).unwrap();

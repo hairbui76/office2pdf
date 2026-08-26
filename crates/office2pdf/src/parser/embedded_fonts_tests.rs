@@ -292,7 +292,7 @@ mod integration {
     use super::*;
     use std::io::{Cursor, Write};
     use zip::ZipWriter;
-    use zip::write::FileOptions;
+    use zip::write::SimpleFileOptions;
 
     /// Build a minimal PPTX ZIP with an obfuscated embedded font.
     fn build_pptx_with_embedded_font(ttf_data: &[u8], guid: &str) -> Vec<u8> {
@@ -305,7 +305,7 @@ mod integration {
         let buf = Vec::new();
         let cursor = Cursor::new(buf);
         let mut zip = ZipWriter::new(cursor);
-        let options = FileOptions::default();
+        let options = SimpleFileOptions::default();
 
         // presentation.xml with embedded font list
         let pres_xml = format!(
@@ -359,7 +359,7 @@ mod integration {
         let buf = Vec::new();
         let cursor = Cursor::new(buf);
         let mut zip = ZipWriter::new(cursor);
-        let options = FileOptions::default();
+        let options = SimpleFileOptions::default();
 
         // word/fontTable.xml
         let font_table_xml = format!(
@@ -469,7 +469,7 @@ mod integration {
         let buf = Vec::new();
         let cursor = Cursor::new(buf);
         let mut zip = ZipWriter::new(cursor);
-        let options = FileOptions::default();
+        let options = SimpleFileOptions::default();
 
         let pres_xml = r#"<?xml version="1.0" encoding="UTF-8"?>
 <p:presentation xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
@@ -488,7 +488,7 @@ mod integration {
         let buf = Vec::new();
         let cursor = Cursor::new(buf);
         let mut zip = ZipWriter::new(cursor);
-        let options = FileOptions::default();
+        let options = SimpleFileOptions::default();
         zip.start_file("xl/workbook.xml", options).unwrap();
         zip.write_all(b"<workbook/>").unwrap();
         let zip_data = zip.finish().unwrap().into_inner();

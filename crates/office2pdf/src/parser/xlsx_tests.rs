@@ -757,7 +757,7 @@ fn rewrite_first_styles_font(data: &[u8], family: &str, size_pt: f64) -> Vec<u8>
             )
             .into_bytes();
         }
-        out.start_file(name, zip::write::FileOptions::default())
+        out.start_file(name, zip::write::SimpleFileOptions::default())
             .expect("writable entry");
         std::io::Write::write_all(&mut out, &bytes).expect("writable entry body");
     }
@@ -833,14 +833,14 @@ fn splice_picture_drawing(data: &[u8]) -> Vec<u8> {
             }
             _ => {}
         }
-        out.start_file(name, zip::write::FileOptions::default())
+        out.start_file(name, zip::write::SimpleFileOptions::default())
             .expect("writable entry");
         std::io::Write::write_all(&mut out, &bytes).expect("writable entry body");
     }
     if !has_sheet_rels {
         out.start_file(
             "xl/worksheets/_rels/sheet1.xml.rels",
-            zip::write::FileOptions::default(),
+            zip::write::SimpleFileOptions::default(),
         )
         .expect("writable sheet rels");
         std::io::Write::write_all(&mut out, SHEET_RELS.as_bytes()).expect("writable sheet rels");
@@ -853,7 +853,7 @@ fn splice_picture_drawing(data: &[u8]) -> Vec<u8> {
         ),
         ("xl/media/image1.png", PNG_1X1),
     ] {
-        out.start_file(path, zip::write::FileOptions::default())
+        out.start_file(path, zip::write::SimpleFileOptions::default())
             .expect("writable drawing part");
         std::io::Write::write_all(&mut out, body).expect("writable drawing part body");
     }
@@ -966,7 +966,7 @@ fn inject_before_worksheet_close(xlsx: &[u8], insertion: &str) -> Vec<u8> {
                 .into_bytes();
         }
         writer
-            .start_file(name, zip::write::FileOptions::default())
+            .start_file(name, zip::write::SimpleFileOptions::default())
             .unwrap();
         std::io::Write::write_all(&mut writer, &contents).unwrap();
     }

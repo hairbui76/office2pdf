@@ -545,10 +545,10 @@ fn test_parse_docx_header_paragraph_border_space() {
 fn build_docx_with_doc_grid(type_attribute: &str) -> Vec<u8> {
     use std::io::Write;
     use zip::ZipWriter;
-    use zip::write::FileOptions;
+    use zip::write::SimpleFileOptions;
 
     let mut zip = ZipWriter::new(Cursor::new(Vec::new()));
-    let opts = FileOptions::default();
+    let opts = SimpleFileOptions::default();
 
     zip.start_file("[Content_Types].xml", opts).unwrap();
     zip.write_all(

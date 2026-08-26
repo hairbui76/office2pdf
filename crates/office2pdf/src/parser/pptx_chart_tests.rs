@@ -30,7 +30,7 @@ fn build_test_pptx_with_chart(
     chart_xml: &str,
 ) -> Vec<u8> {
     let mut zip = zip::ZipWriter::new(Cursor::new(Vec::new()));
-    let opts = FileOptions::default();
+    let opts = SimpleFileOptions::default();
 
     zip.start_file("[Content_Types].xml", opts).unwrap();
     zip.write_all(

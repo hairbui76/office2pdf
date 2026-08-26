@@ -429,7 +429,7 @@ fn build_test_pptx_with_table_styles(
     table_styles_xml: &str,
 ) -> Vec<u8> {
     let mut zip = zip::ZipWriter::new(Cursor::new(Vec::new()));
-    let opts = FileOptions::default();
+    let opts = SimpleFileOptions::default();
 
     let mut ct = String::from(r#"<?xml version="1.0" encoding="UTF-8"?>"#);
     ct.push_str(r#"<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">"#);

@@ -1,13 +1,13 @@
 use super::*;
 use std::io::Write;
-use zip::write::FileOptions;
+use zip::write::SimpleFileOptions;
 
 // ── Test helpers ─────────────────────────────────────────────────────
 
 /// Build a minimal PPTX file as bytes from slide XML strings.
 fn build_test_pptx(slide_cx_emu: i64, slide_cy_emu: i64, slide_xmls: &[String]) -> Vec<u8> {
     let mut zip = zip::ZipWriter::new(Cursor::new(Vec::new()));
-    let opts = FileOptions::default();
+    let opts = SimpleFileOptions::default();
 
     // [Content_Types].xml
     let mut ct = String::from(r#"<?xml version="1.0" encoding="UTF-8"?>"#);

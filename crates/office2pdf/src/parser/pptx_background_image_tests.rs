@@ -1,6 +1,6 @@
 use super::*;
 use std::io::Write;
-use zip::write::FileOptions;
+use zip::write::SimpleFileOptions;
 
 // ── Helpers ──────────────────────────────────────────────────────────
 
@@ -35,7 +35,7 @@ fn make_master_xml(bg_xml: &str) -> String {
 /// picture-fill background is resolvable.
 fn build_test_pptx_with_bg_layers(slide_xml: &str, layout_xml: &str, master_xml: &str) -> Vec<u8> {
     let mut zip = zip::ZipWriter::new(Cursor::new(Vec::new()));
-    let opts = FileOptions::default();
+    let opts = SimpleFileOptions::default();
 
     let ct = r#"<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="bmp" ContentType="image/bmp"/><Override PartName="/ppt/slides/slide1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml"/><Override PartName="/ppt/slideLayouts/slideLayout1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml"/><Override PartName="/ppt/slideMasters/slideMaster1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml"/></Types>"#;
     zip.start_file("[Content_Types].xml", opts).unwrap();

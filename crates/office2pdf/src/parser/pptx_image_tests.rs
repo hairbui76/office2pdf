@@ -2,7 +2,7 @@ use super::*;
 use crate::ir::ImageCrop;
 use crate::test_support::make_test_svg;
 use std::io::{Cursor, Write};
-use zip::write::FileOptions;
+use zip::write::SimpleFileOptions;
 
 /// Create a minimal valid BMP (1×1 pixel, red) for test images.
 pub(super) fn make_test_bmp() -> Vec<u8> {
@@ -262,7 +262,7 @@ pub(super) fn build_test_pptx_with_images(
     slides: &[(String, Vec<TestSlideImage>)],
 ) -> Vec<u8> {
     let mut zip = zip::ZipWriter::new(Cursor::new(Vec::new()));
-    let opts = FileOptions::default();
+    let opts = SimpleFileOptions::default();
 
     // [Content_Types].xml
     let mut ct = String::from(r#"<?xml version="1.0" encoding="UTF-8"?>"#);

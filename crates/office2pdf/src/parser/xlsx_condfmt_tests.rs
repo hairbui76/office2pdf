@@ -623,7 +623,7 @@ fn rewrite_data_bar_children_as_start_end_tags(xlsx_bytes: &[u8]) -> Vec<u8> {
             let rewritten = regex_like_expand_self_closing(&xml);
             content = rewritten.into_bytes();
         }
-        out.start_file(name, zip::write::FileOptions::default())
+        out.start_file(name, zip::write::SimpleFileOptions::default())
             .expect("start entry");
         std::io::Write::write_all(&mut out, &content).expect("write entry");
     }

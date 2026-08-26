@@ -34,7 +34,7 @@ fn build_docx_with_image(width_px: u32, height_px: u32) -> Vec<u8> {
 
 fn build_docx_with_custom_image_document(document_xml: &str) -> Vec<u8> {
     let mut zip = zip::ZipWriter::new(Cursor::new(Vec::new()));
-    let options = zip::write::FileOptions::default();
+    let options = zip::write::SimpleFileOptions::default();
 
     zip.start_file("[Content_Types].xml", options).unwrap();
     std::io::Write::write_all(
@@ -383,7 +383,7 @@ fn patch_docx_wrap_type(data: &[u8], old_wrap: &str, new_wrap: &str) -> Vec<u8> 
     for i in 0..archive.len() {
         let mut file = archive.by_index(i).unwrap();
         let name = file.name().to_string();
-        let options = zip::write::FileOptions::default();
+        let options = zip::write::SimpleFileOptions::default();
         new_zip.start_file(&name, options).unwrap();
 
         let mut contents = Vec::new();
@@ -410,7 +410,7 @@ fn patch_docx_behind_doc(data: &[u8]) -> Vec<u8> {
     for i in 0..archive.len() {
         let mut file = archive.by_index(i).unwrap();
         let name = file.name().to_string();
-        let options = zip::write::FileOptions::default();
+        let options = zip::write::SimpleFileOptions::default();
         new_zip.start_file(&name, options).unwrap();
 
         let mut contents = Vec::new();

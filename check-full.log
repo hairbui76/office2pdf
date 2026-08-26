@@ -1,0 +1,1463 @@
+    Checking office2pdf v0.6.5 (/tmp/claude-1001/-mnt-ssdvolumes-repo-RustlingPDF/c282c34c-e6d6-4748-ab45-f13fb5db0d24/scratchpad/office2pdf/crates/office2pdf)
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/chart.rs:729:51
+    |
+729 | ...                   && let Ok(val) = attr.unescape_value()
+    |                                             ^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/chart.rs:750:51
+    |
+750 | ...                   && let Ok(val) = attr.unescape_value()
+    |                                             ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_raw_value`: Use raw_value()
+  --> crates/office2pdf/src/parser/cond_fmt.rs:50:20
+   |
+50 |     let raw = cell.get_raw_value().to_string();
+   |                    ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_value`: Use value()
+  --> crates/office2pdf/src/parser/cond_fmt.rs:54:10
+   |
+54 |     cell.get_value().to_string().parse::<f64>().ok()
+   |          ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_data_type`: Use data_type()
+  --> crates/office2pdf/src/parser/cond_fmt.rs:63:13
+   |
+63 |     if cell.get_data_type() != "s" {
+   |             ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_value`: Use value()
+  --> crates/office2pdf/src/parser/cond_fmt.rs:66:21
+   |
+66 |     let text = cell.get_value().to_string();
+   |                     ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_formula`: Use formula()
+  --> crates/office2pdf/src/parser/cond_fmt.rs:98:28
+   |
+98 |     let raw: String = rule.get_formula()?.get_address_str();
+   |                            ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Formula::get_address_str`: Use address_str()
+  --> crates/office2pdf/src/parser/cond_fmt.rs:98:43
+   |
+98 |     let raw: String = rule.get_formula()?.get_address_str();
+   |                                           ^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_style`: Use style()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:157:31
+    |
+157 |     if let Some(style) = rule.get_style() {
+    |                               ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_background_color`: Use background_color()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:158:33
+    |
+158 |         if let Some(bg) = style.get_background_color() {
+    |                                 ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:159:54
+    |
+159 |             result.background = parse_argb_color(&bg.get_argb_str());
+    |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_fill`: Use fill()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:165:18
+    |
+165 |                 .get_fill()
+    |                  ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Fill::get_pattern_fill`: Use pattern_fill()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:166:39
+    |
+166 |                 .and_then(|fill| fill.get_pattern_fill()?.get_background_color())
+    |                                       ^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PatternFill::get_background_color`: Use background_color()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:166:59
+    |
+166 |                 .and_then(|fill| fill.get_pattern_fill()?.get_background_color())
+    |                                                           ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:168:54
+    |
+168 |             result.background = parse_argb_color(&bg.get_argb_str());
+    |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_font`: Use font()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:170:35
+    |
+170 |         if let Some(font) = style.get_font() {
+    |                                   ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_bold`: Use bold()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:171:21
+    |
+171 |             if font.get_bold() {
+    |                     ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_color`: Use color()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:174:35
+    |
+174 |             let color_argb = font.get_color().get_argb_str();
+    |                                   ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:174:47
+    |
+174 |             let color_argb = font.get_color().get_argb_str();
+    |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:186:22
+    |
+186 |     let argb = color.get_argb_str();
+    |                      ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:211:43
+    |
+211 |                 if let Some(cell) = sheet.get_cell((col, row))
+    |                                           ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_text`: Use text()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:244:29
+    |
+244 |     let needle: &str = rule.get_text();
+    |                             ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:253:40
+    |
+253 |                 let Some(cell) = sheet.get_cell((col, row)) else {
+    |                                        ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_formatted_value`: Use formatted_value()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:256:34
+    |
+256 |                 let value = cell.get_formatted_value();
+    |                                  ^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_operator`: Use operator()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:287:25
+    |
+287 |     let operator = rule.get_operator();
+    |                         ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:296:40
+    |
+296 |                 let Some(cell) = sheet.get_cell((col, row)) else {
+    |                                        ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_color_scale`: Use color_scale()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:329:25
+    |
+329 |     let Some(cs) = rule.get_color_scale() else {
+    |                         ^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ColorScale::get_color_collection`: Use color_collection()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:334:10
+    |
+334 |         .get_color_collection()
+    |          ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:354:43
+    |
+354 |                 if let Some(cell) = sheet.get_cell((col, row))
+    |                                           ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_data_bar`: Use data_bar()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:390:25
+    |
+390 |     let Some(db) = rule.get_data_bar() else {
+    |                         ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DataBar::get_color_collection`: Use color_collection()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:395:10
+    |
+395 |         .get_color_collection()
+    |          ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DataBar::get_cfvo_collection`: Use cfvo_collection()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:407:20
+    |
+407 |     let cfvos = db.get_cfvo_collection();
+    |                    ^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:426:43
+    |
+426 |                 if let Some(cell) = sheet.get_cell((col, row))
+    |                                           ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormatValueObject::get_val`: Use val()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:455:34
+    |
+455 |         CfvoType::Number => cfvo.get_val().parse().ok(),
+    |                                  ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormatValueObject::get_val`: Use val()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:457:33
+    |
+457 |             let pct: f64 = cfvo.get_val().parse().ok()?;
+    |                                 ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_icon_set`: Use icon_set()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:495:18
+    |
+495 |             rule.get_icon_set()
+    |                  ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::IconSet::get_cfvo_collection`: Use cfvo_collection()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:496:30
+    |
+496 |                 .map(|is| is.get_cfvo_collection())
+    |                              ^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormatValueObject::get_val`: Use val()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:500:41
+    |
+500 |                     let pct: f64 = cfvo.get_val().parse().ok()?;
+    |                                         ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:526:43
+    |
+526 |                 if let Some(cell) = sheet.get_cell((col, row))
+    |                                           ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_conditional_formatting_collection`: Use conditional_formatting_collection()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:667:21
+    |
+667 |     for cf in sheet.get_conditional_formatting_collection() {
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormatting::get_sequence_of_references`: Use sequence_of_references()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:668:24
+    |
+668 |         let sqref = cf.get_sequence_of_references().get_sqref();
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormatting::get_conditional_collection`: Use conditional_collection()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:674:24
+    |
+674 |         for rule in cf.get_conditional_collection() {
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ConditionalFormattingRule::get_priority`: Use priority()
+   --> crates/office2pdf/src/parser/cond_fmt.rs:676:71
+    |
+676 |             let raw_hint = raw_hints.and_then(|hints| hints.get(&rule.get_priority()));
+    |                                                                       ^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+  --> crates/office2pdf/src/parser/docx_context_columns.rs:47:54
+   |
+47 |                         if let Ok(value) = attribute.unescape_value() {
+   |                                                      ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+  --> crates/office2pdf/src/parser/docx_context_columns.rs:68:58
+   |
+68 | ...                   && let Ok(value) = attribute.unescape_value()
+   |                                                    ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+  --> crates/office2pdf/src/parser/docx_context_columns.rs:84:54
+   |
+84 |                         if let Ok(value) = attribute.unescape_value() {
+   |                                                      ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/docx_context_columns.rs:105:58
+    |
+105 | ...                   && let Ok(value) = attribute.unescape_value()
+    |                                                    ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/docx_context_notes.rs:139:30
+    |
+139 | ...                   .unescape_value()
+    |                        ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/docx_context_notes.rs:261:58
+    |
+261 | ...                   && let Ok(value) = attribute.unescape_value()
+    |                                                    ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+  --> crates/office2pdf/src/parser/docx_context_page_numbers.rs:55:35
+   |
+55 |         let Ok(value) = attribute.unescape_value() else {
+   |                                   ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::decode_and_unescape_value`: use `Self::decoded_and_normalized_value()`
+  --> crates/office2pdf/src/parser/docx_context_paragraph_shading.rs:17:18
+   |
+17 |                 .decode_and_unescape_value(reader.decoder())
+   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+  --> crates/office2pdf/src/parser/docx_context_wrap.rs:87:62
+   |
+87 | ...                   && let Ok(value) = attribute.unescape_value()
+   |                                                    ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/docx_sections.rs:191:10
+    |
+191 |         .unescape_value()
+    |          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/docx_sections.rs:264:47
+    |
+264 |                     let Ok(value) = attribute.unescape_value() else {
+    |                                               ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::decode_and_unescape_value`: use `Self::decoded_and_normalized_value()`
+  --> crates/office2pdf/src/parser/docx_styles.rs:48:26
+   |
+48 |                         .decode_and_unescape_value(reader.decoder())
+   |                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/docx_text.rs:389:39
+    |
+389 |                         .then(|| attr.unescape_value().ok())
+    |                                       ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/docx.rs:150:47
+    |
+150 |                     let Ok(value) = attribute.unescape_value() else {
+    |                                               ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:288:49
+    |
+288 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:354:49
+    |
+354 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:363:49
+    |
+363 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:465:49
+    |
+465 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:590:49
+    |
+590 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:653:49
+    |
+653 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:699:49
+    |
+699 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:875:43
+    |
+875 |                     if let Ok(val) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/omml/mod.rs:889:43
+    |
+889 |                     if let Ok(val) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/pptx_slides.rs:190:39
+    |
+190 |                         .then(|| attr.unescape_value().ok())
+    |                                       ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/pptx_theme.rs:312:31
+    |
+312 |         .and_then(|attr| attr.unescape_value().ok())
+    |                               ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/smartart.rs:124:49
+    |
+124 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/smartart.rs:156:45
+    |
+156 |                         if let Ok(v) = attr.unescape_value() {
+    |                                             ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/smartart.rs:271:57
+    |
+271 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/smartart.rs:276:57
+    |
+276 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/smartart.rs:288:57
+    |
+288 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/smartart.rs:293:57
+    |
+293 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/smartart.rs:307:53
+    |
+307 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::decode_and_unescape_value`: use `Self::decoded_and_normalized_value()`
+  --> crates/office2pdf/src/parser/xlsx_cond_fmt_raw.rs:28:18
+   |
+28 |                 .decode_and_unescape_value(reader.decoder())
+   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_sheet_format_properties`: Use sheet_format_properties()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:168:10
+    |
+168 |         .get_sheet_format_properties()
+    |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::SheetFormatProperties::get_default_column_width`: Use default_column_width()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:169:10
+    |
+169 |         .get_default_column_width();
+    |          ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_sheet_format_properties`: Use sheet_format_properties()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:177:39
+    |
+177 |     let base_width_chars: u32 = sheet.get_sheet_format_properties().get_base_column_width();
+    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::SheetFormatProperties::get_base_column_width`: Use base_column_width()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:177:69
+    |
+177 |     let base_width_chars: u32 = sheet.get_sheet_format_properties().get_base_column_width();
+    |                                                                     ^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cells`: Use cells()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:187:23
+    |
+187 |     for cell in sheet.get_cells() {
+    |                       ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:188:31
+    |
+188 |         let Some(font) = cell.get_style().get_font() else {
+    |                               ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_font`: Use font()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:188:43
+    |
+188 |         let Some(font) = cell.get_style().get_font() else {
+    |                                           ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:191:27
+    |
+191 |         let family = font.get_name().trim();
+    |                           ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_defined_names`: Use defined_names()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:269:21
+    |
+269 |     for dn in sheet.get_defined_names() {
+    |                     ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DefinedName::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:270:15
+    |
+270 |         if dn.get_name() == "_xlnm.Print_Area" {
+    |               ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DefinedName::get_address`: Use address()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:271:27
+    |
+271 |             let addr = dn.get_address();
+    |                           ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_defined_names`: Use defined_names()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:297:21
+    |
+297 |     for dn in sheet.get_defined_names() {
+    |                     ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DefinedName::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:298:15
+    |
+298 |         if dn.get_name() == "_xlnm.Print_Titles" {
+    |               ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DefinedName::get_address`: Use address()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:299:43
+    |
+299 |             parse_print_title_address(&dn.get_address(), &mut titles);
+    |                                           ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:303:57
+    |
+303 |         let plain_prefix: String = format!("{}!", sheet.get_name());
+    |                                                         ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:304:60
+    |
+304 |         let quoted_prefix: String = format!("'{}'!", sheet.get_name());
+    |                                                            ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Workbook::get_defined_names`: Use defined_names()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:305:24
+    |
+305 |         for dn in book.get_defined_names() {
+    |                        ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DefinedName::get_address`: Use address()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:306:38
+    |
+306 |             let address: String = dn.get_address();
+    |                                      ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::DefinedName::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:307:19
+    |
+307 |             if dn.get_name() == "_xlnm.Print_Titles"
+    |                   ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_row_breaks`: Use row_breaks()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:343:10
+    |
+343 |         .get_row_breaks()
+    |          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::RowBreaks::get_break_list`: Use break_list()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:344:10
+    |
+344 |         .get_break_list()
+    |          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Break::get_manual_page_break`: Use manual_page_break()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:346:23
+    |
+346 |         .filter(|b| b.get_manual_page_break())
+    |                       ^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Break::get_id`: Use id()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:347:20
+    |
+347 |         .map(|b| b.get_id())
+    |                    ^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_merge_cells`: Use merge_cells()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:365:24
+    |
+365 |     for range in sheet.get_merge_cells() {
+    |                        ^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Range::get_coordinate_start_col`: Use coordinate_start_col()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:367:14
+    |
+367 |             .get_coordinate_start_col()
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ColumnReference::get_num`: Use num()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:368:24
+    |
+368 |             .map(|c| c.get_num())
+    |                        ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Range::get_coordinate_start_row`: Use coordinate_start_row()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:371:14
+    |
+371 |             .get_coordinate_start_row()
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::RowReference::get_num`: Use num()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:372:24
+    |
+372 |             .map(|r| r.get_num())
+    |                        ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Range::get_coordinate_end_col`: Use coordinate_end_col()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:375:14
+    |
+375 |             .get_coordinate_end_col()
+    |              ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ColumnReference::get_num`: Use num()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:376:24
+    |
+376 |             .map(|c| c.get_num())
+    |                        ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Range::get_coordinate_end_row`: Use coordinate_end_row()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:379:14
+    |
+379 |             .get_coordinate_end_row()
+    |              ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::RowReference::get_num`: Use num()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:380:24
+    |
+380 |             .map(|r| r.get_num())
+    |                        ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:515:31
+    |
+515 |         .and_then(|cell| cell.get_style().get_alignment().cloned())
+    |                               ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_alignment`: Use alignment()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:515:43
+    |
+515 |         .and_then(|cell| cell.get_style().get_alignment().cloned())
+    |                                           ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Alignment::get_wrap_text`: Use wrap_text()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:516:36
+    |
+516 |         .map(|alignment| alignment.get_wrap_text())
+    |                                    ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:568:14
+    |
+568 |             .get_cell((neighbor_col, row_idx))
+    |              ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_formatted_value`: Use formatted_value()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:569:30
+    |
+569 |             .map(|cell| cell.get_formatted_value().is_empty())
+    |                              ^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_row_dimension`: Use row_dimension()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:639:31
+    |
+639 |     let row_dimension = sheet.get_row_dimension(&row_idx);
+    |                               ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Row::get_custom_height`: Use custom_height()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:641:24
+    |
+641 |         .map(|row| row.get_custom_height())
+    |                        ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Row::get_height`: Use height()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:647:24
+    |
+647 |         .map(|row| row.get_height())
+    |                        ^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_sheet_format_properties`: Use sheet_format_properties()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:651:44
+    |
+651 |             let sheet_default: f64 = sheet.get_sheet_format_properties().get_default_row_height();
+    |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::SheetFormatProperties::get_default_row_height`: Use default_row_height()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:651:74
+    |
+651 |             let sheet_default: f64 = sheet.get_sheet_format_properties().get_default_row_height();
+    |                                                                          ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:679:35
+    |
+679 |             let umya_cell = sheet.get_cell((col_idx, row_idx));
+    |                                   ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_formatted_value`: Use formatted_value()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:681:34
+    |
+681 |                 .map(|cell| cell.get_formatted_value())
+    |                                  ^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:684:51
+    |
+684 |                 && let Some(number_format) = cell.get_style().get_number_format()
+    |                                                   ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_number_format`: Use number_format()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:684:63
+    |
+684 |                 && let Some(number_format) = cell.get_style().get_number_format()
+    |                                                               ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::NumberingFormat::get_format_code`: Use format_code()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:685:60
+    |
+685 |                 && uses_native_arabic_digits(number_format.get_format_code())
+    |                                                            ^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_cell_value`: Use cell_value()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:723:48
+    |
+723 |                 umya_cell.and_then(|cell| cell.get_cell_value().get_raw_value().get_rich_text());
+    |                                                ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::CellValue::get_raw_value`: Use raw_value()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:723:65
+    |
+723 |                 umya_cell.and_then(|cell| cell.get_cell_value().get_raw_value().get_rich_text());
+    |                                                                 ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::CellRawValue::get_rich_text`: Use rich_text()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:723:81
+    |
+723 |                 umya_cell.and_then(|cell| cell.get_cell_value().get_raw_value().get_rich_text());
+    |                                                                                 ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::RichText::get_rich_text_elements`: Use rich_text_elements()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:726:22
+    |
+726 |                     .get_rich_text_elements()
+    |                      ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::TextElement::get_text`: Use text()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:728:48
+    |
+728 |                     .filter(|element| !element.get_text().is_empty())
+    |                                                ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::TextElement::get_text`: Use text()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:730:39
+    |
+730 |                         text: element.get_text().to_string(),
+    |                                       ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::TextElement::get_run_properties`: Use run_properties()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:732:30
+    |
+732 | ...                   .get_run_properties()
+    |                        ^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_value_number`: Use value_number()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:762:43
+    |
+762 |                     .and_then(|cell| cell.get_value_number())
+    |                                           ^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_cell`: Use cell()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:821:22
+    |
+821 |                     .get_cell((col, row_idx))
+    |                      ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:822:43
+    |
+822 |                     .and_then(|cell| cell.get_style().get_alignment().cloned())
+    |                                           ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_alignment`: Use alignment()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:822:55
+    |
+822 |                     .and_then(|cell| cell.get_style().get_alignment().cloned())
+    |                                                       ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Alignment::get_wrap_text`: Use wrap_text()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:823:48
+    |
+823 |                     .map(|alignment| alignment.get_wrap_text())
+    |                                                ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_highest_column_and_row`: Use highest_column_and_row()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:858:44
+    |
+858 |     let (mut max_col, mut max_row) = sheet.get_highest_column_and_row();
+    |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_merge_cells`: Use merge_cells()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:864:24
+    |
+864 |     for range in sheet.get_merge_cells() {
+    |                        ^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Range::get_coordinate_end_col`: Use coordinate_end_col()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:865:32
+    |
+865 |         if let Some(c) = range.get_coordinate_end_col() {
+    |                                ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::ColumnReference::get_num`: Use num()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:866:37
+    |
+866 |             max_col = max_col.max(c.get_num());
+    |                                     ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Range::get_coordinate_end_row`: Use coordinate_end_row()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:868:32
+    |
+868 |         if let Some(r) = range.get_coordinate_end_row() {
+    |                                ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::RowReference::get_num`: Use num()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:869:37
+    |
+869 |             max_row = max_row.max(r.get_num());
+    |                                     ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_column_dimension_by_number`: Use column_dimension_by_number()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:890:18
+    |
+890 |                 .get_column_dimension_by_number(&col)
+    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Column::get_width`: Use width()
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:891:47
+    |
+891 |                 .map(|c| column_width_to_pt(c.get_width(), unit_pt))
+    |                                               ^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:217:53
+    |
+217 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:222:53
+    |
+222 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:263:53
+    |
+263 | ...                   if let Ok(v) = attr.unescape_value() {
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:268:53
+    |
+268 | ...                   if let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:328:55
+    |
+328 | ...                   && let Ok(val) = attr.unescape_value()
+    |                                             ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:343:51
+    |
+343 | ...                   && let Ok(val) = attr.unescape_value()
+    |                                             ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:579:30
+    |
+579 | ...                   .unescape_value()
+    |                        ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:594:51
+    |
+594 | ...                   && let Ok(val) = attr.unescape_value()
+    |                                             ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:761:41
+    |
+761 |                 if let Ok(value) = attr.unescape_value()
+    |                                         ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:767:26
+    |
+767 |             b"b" if attr.unescape_value().ok().as_deref() == Some("1") => {
+    |                          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:770:26
+    |
+770 |             b"i" if attr.unescape_value().ok().as_deref() == Some("1") => {
+    |                          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:861:53
+    |
+861 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:905:41
+    |
+905 | ...                   && attr.unescape_value().ok().as_deref() == Some("ctr")
+    |                               ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:922:53
+    |
+922 | ...                   && let Ok(v) = attr.unescape_value()
+    |                                           ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:954:34
+    |
+954 | ...                   .unescape_value()
+    |                        ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:40:22
+   |
+40 |     let style = cell.get_style();
+   |                      ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_font`: Use font()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:41:28
+   |
+41 |     let Some(font) = style.get_font() else {
+   |                            ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_bold`: Use bold()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:45:24
+   |
+45 |     let bold = if font.get_bold() { Some(true) } else { None };
+   |                        ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_italic`: Use italic()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:46:26
+   |
+46 |     let italic = if font.get_italic() { Some(true) } else { None };
+   |                          ^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_font_underline`: Use font_underline()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:50:32
+   |
+50 |     let underline = match font.get_font_underline().get_val() {
+   |                                ^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Underline::get_val`: Use val()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:50:53
+   |
+50 |     let underline = match font.get_font_underline().get_val() {
+   |                                                     ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_strikethrough`: Use strikethrough()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:54:33
+   |
+54 |     let strikethrough = if font.get_strikethrough() {
+   |                                 ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_name`: Use name()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:64:32
+   |
+64 |     let font_name: &str = font.get_name();
+   |                                ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_size`: Use size()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:71:30
+   |
+71 |     let raw_size: f64 = font.get_size();
+   |                              ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_color`: Use color()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:79:27
+   |
+79 |     let color_argb = font.get_color().get_argb_str();
+   |                           ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+  --> crates/office2pdf/src/parser/xlsx_style.rs:79:39
+   |
+79 |     let color_argb = font.get_color().get_argb_str();
+   |                                       ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:124:32
+    |
+124 |     let font_name: &str = font.get_name();
+    |                                ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_size`: Use size()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:129:30
+    |
+129 |     let raw_size: f64 = font.get_size();
+    |                              ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_bold`: Use bold()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:134:13
+    |
+134 |     if font.get_bold() {
+    |             ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_italic`: Use italic()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:137:13
+    |
+137 |     if font.get_italic() {
+    |             ^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_font_underline`: Use font_underline()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:141:14
+    |
+141 |         font.get_font_underline().get_val(),
+    |              ^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Underline::get_val`: Use val()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:141:35
+    |
+141 |         font.get_font_underline().get_val(),
+    |                                   ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_strikethrough`: Use strikethrough()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:146:13
+    |
+146 |     if font.get_strikethrough() {
+    |             ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Font::get_color`: Use color()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:150:35
+    |
+150 |     let color_argb: String = font.get_color().get_argb_str();
+    |                                   ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:150:47
+    |
+150 |     let color_argb: String = font.get_color().get_argb_str();
+    |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:162:19
+    |
+162 |     let bg = cell.get_style().get_background_color()?;
+    |                   ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_background_color`: Use background_color()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:162:31
+    |
+162 |     let bg = cell.get_style().get_background_color()?;
+    |                               ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:163:26
+    |
+163 |     parse_argb_color(&bg.get_argb_str())
+    |                          ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Border::get_border_style`: Use border_style()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:182:35
+    |
+182 |     let border_style_str = border.get_border_style();
+    |                                   ^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Border::get_color`: Use color()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:185:10
+    |
+185 |         .get_color()
+    |          ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Color::get_argb_str`: Use argb_str()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:186:43
+    |
+186 |         .and_then(|c| parse_argb_color(&c.get_argb_str()))
+    |                                           ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:198:24
+    |
+198 |     let borders = cell.get_style().get_borders()?;
+    |                        ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_borders`: Use borders()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:198:36
+    |
+198 |     let borders = cell.get_style().get_borders()?;
+    |                                    ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::structs::borders::Borders::get_top`: Use top()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:199:43
+    |
+199 |     let top = extract_border_side(borders.get_top());
+    |                                           ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::structs::borders::Borders::get_bottom`: Use bottom()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:200:46
+    |
+200 |     let bottom = extract_border_side(borders.get_bottom());
+    |                                              ^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::structs::borders::Borders::get_left`: Use left()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:201:44
+    |
+201 |     let left = extract_border_side(borders.get_left());
+    |                                            ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::structs::borders::Borders::get_right`: Use right()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:202:45
+    |
+202 |     let right = extract_border_side(borders.get_right());
+    |                                             ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Cell::get_style`: Use style()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:222:32
+    |
+222 |     let Some(alignment) = cell.get_style().get_alignment() else {
+    |                                ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Style::get_alignment`: Use alignment()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:222:44
+    |
+222 |     let Some(alignment) = cell.get_style().get_alignment() else {
+    |                                            ^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Alignment::get_horizontal`: Use horizontal()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:227:38
+    |
+227 |     let horizontal = match alignment.get_horizontal() {
+    |                                      ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Alignment::get_vertical`: Use vertical()
+   --> crates/office2pdf/src/parser/xlsx_style.rs:234:36
+    |
+234 |     let vertical = match alignment.get_vertical() {
+    |                                    ^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_page_margins`: Use page_margins()
+  --> crates/office2pdf/src/parser/xlsx.rs:46:30
+   |
+46 |     let page_margins = sheet.get_page_margins();
+   |                              ^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PageMargins::get_top`: Use top()
+  --> crates/office2pdf/src/parser/xlsx.rs:55:40
+   |
+55 |         top: inches_to_pt(page_margins.get_top(), 54.0),
+   |                                        ^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PageMargins::get_bottom`: Use bottom()
+  --> crates/office2pdf/src/parser/xlsx.rs:56:43
+   |
+56 |         bottom: inches_to_pt(page_margins.get_bottom(), 54.0),
+   |                                           ^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PageMargins::get_left`: Use left()
+  --> crates/office2pdf/src/parser/xlsx.rs:57:41
+   |
+57 |         left: inches_to_pt(page_margins.get_left(), 50.4),
+   |                                         ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PageMargins::get_right`: Use right()
+  --> crates/office2pdf/src/parser/xlsx.rs:58:42
+   |
+58 |         right: inches_to_pt(page_margins.get_right(), 50.4),
+   |                                          ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_page_setup`: Use page_setup()
+  --> crates/office2pdf/src/parser/xlsx.rs:98:16
+   |
+98 |     Some(sheet.get_page_setup().get_fit_to_width()).filter(|pages| *pages > 0)
+   |                ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PageSetup::get_fit_to_width`: Use fit_to_width()
+  --> crates/office2pdf/src/parser/xlsx.rs:98:33
+   |
+98 |     Some(sheet.get_page_setup().get_fit_to_width()).filter(|pages| *pages > 0)
+   |                                 ^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Workbook::get_sheet_collection`: Use sheet_collection()
+   --> crates/office2pdf/src/parser/xlsx.rs:106:10
+    |
+106 |     book.get_sheet_collection().iter().find(|sheet| {
+    |          ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:110:71
+    |
+110 |             .is_none_or(|names| names.iter().any(|name| name == sheet.get_name()))
+    |                                                                       ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:134:21
+    |
+134 |         name: sheet.get_name().to_string(),
+    |                     ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_page_setup`: Use page_setup()
+   --> crates/office2pdf/src/parser/xlsx.rs:147:28
+    |
+147 |     let page_setup = sheet.get_page_setup();
+    |                            ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PageSetup::get_paper_size`: Use paper_size()
+   --> crates/office2pdf/src/parser/xlsx.rs:148:48
+    |
+148 |     let size = worksheet_paper_size(page_setup.get_paper_size());
+    |                                                ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::PageSetup::get_orientation`: Use orientation()
+   --> crates/office2pdf/src/parser/xlsx.rs:150:20
+    |
+150 |         page_setup.get_orientation(),
+    |                    ^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_row_dimension`: Use row_dimension()
+   --> crates/office2pdf/src/parser/xlsx.rs:203:14
+    |
+203 |             .get_row_dimension(&(row_zero_based + 1))
+    |              ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Row::get_height`: Use height()
+   --> crates/office2pdf/src/parser/xlsx.rs:204:28
+    |
+204 |             .map(|row| row.get_height())
+    |                            ^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_sheet_format_properties`: Use sheet_format_properties()
+   --> crates/office2pdf/src/parser/xlsx.rs:207:37
+    |
+207 |                 let default = sheet.get_sheet_format_properties().get_default_row_height();
+    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::SheetFormatProperties::get_default_row_height`: Use default_row_height()
+   --> crates/office2pdf/src/parser/xlsx.rs:207:67
+    |
+207 |                 let default = sheet.get_sheet_format_properties().get_default_row_height();
+    |                                                                   ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Workbook::get_sheet_collection`: Use sheet_collection()
+   --> crates/office2pdf/src/parser/xlsx.rs:358:27
+    |
+358 |         for sheet in book.get_sheet_collection() {
+    |                           ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:361:53
+    |
+361 |                 && !names.iter().any(|n| n == sheet.get_name())
+    |                                                     ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:369:42
+    |
+369 |                 cond_fmt_hints.get(sheet.get_name()),
+    |                                          ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:370:42
+    |
+370 |                 row_stripes.remove(sheet.get_name()).unwrap_or_default(),
+    |                                          ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:374:40
+    |
+374 |                 let sheet_name = sheet.get_name().to_string();
+    |                                        ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:412:36
+    |
+412 |             let sheet_name = sheet.get_name().to_string();
+    |                                    ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_header_footer`: Use header_footer()
+   --> crates/office2pdf/src/parser/xlsx.rs:419:28
+    |
+419 |             let hf = sheet.get_header_footer();
+    |                            ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::HeaderFooter::get_odd_header`: Use odd_header()
+   --> crates/office2pdf/src/parser/xlsx.rs:420:58
+    |
+420 |             let sheet_header = parse_hf_format_string(hf.get_odd_header().get_value());
+    |                                                          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::OddHeader::get_value`: Use value()
+   --> crates/office2pdf/src/parser/xlsx.rs:420:75
+    |
+420 |             let sheet_header = parse_hf_format_string(hf.get_odd_header().get_value());
+    |                                                                           ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::HeaderFooter::get_odd_footer`: Use odd_footer()
+   --> crates/office2pdf/src/parser/xlsx.rs:421:58
+    |
+421 |             let sheet_footer = parse_hf_format_string(hf.get_odd_footer().get_value());
+    |                                                          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::OddFooter::get_value`: Use value()
+   --> crates/office2pdf/src/parser/xlsx.rs:421:75
+    |
+421 |             let sheet_footer = parse_hf_format_string(hf.get_odd_footer().get_value());
+    |                                                                           ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Workbook::get_sheet_collection`: Use sheet_collection()
+   --> crates/office2pdf/src/parser/xlsx.rs:595:32
+    |
+595 |         let sheet_count = book.get_sheet_collection().len();
+    |                                ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Workbook::get_sheet_collection`: Use sheet_collection()
+   --> crates/office2pdf/src/parser/xlsx.rs:599:27
+    |
+599 |         for sheet in book.get_sheet_collection() {
+    |                           ^^^^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:602:53
+    |
+602 |                 && !names.iter().any(|n| n == sheet.get_name())
+    |                                                     ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:610:42
+    |
+610 |                 cond_fmt_hints.get(sheet.get_name()),
+    |                                          ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:611:42
+    |
+611 |                 row_stripes.remove(sheet.get_name()).unwrap_or_default(),
+    |                                          ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:615:40
+    |
+615 |                 let sheet_name = sheet.get_name().to_string();
+    |                                        ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:651:36
+    |
+651 |             let sheet_name = sheet.get_name().to_string();
+    |                                    ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_name`: Use name()
+   --> crates/office2pdf/src/parser/xlsx.rs:664:49
+    |
+664 |                 sheet_fit_to_width(sheet, sheet.get_name(), &fitting_sheets);
+    |                                                 ^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Worksheet::get_header_footer`: Use header_footer()
+   --> crates/office2pdf/src/parser/xlsx.rs:684:28
+    |
+684 |             let hf = sheet.get_header_footer();
+    |                            ^^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::HeaderFooter::get_odd_header`: Use odd_header()
+   --> crates/office2pdf/src/parser/xlsx.rs:685:58
+    |
+685 |             let sheet_header = parse_hf_format_string(hf.get_odd_header().get_value());
+    |                                                          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::OddHeader::get_value`: Use value()
+   --> crates/office2pdf/src/parser/xlsx.rs:685:75
+    |
+685 |             let sheet_header = parse_hf_format_string(hf.get_odd_header().get_value());
+    |                                                                           ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::HeaderFooter::get_odd_footer`: Use odd_footer()
+   --> crates/office2pdf/src/parser/xlsx.rs:686:58
+    |
+686 |             let sheet_footer = parse_hf_format_string(hf.get_odd_footer().get_value());
+    |                                                          ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::OddFooter::get_value`: Use value()
+   --> crates/office2pdf/src/parser/xlsx.rs:686:75
+    |
+686 |             let sheet_footer = parse_hf_format_string(hf.get_odd_footer().get_value());
+    |                                                                           ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Workbook::get_properties`: Use properties()
+   --> crates/office2pdf/src/parser/xlsx.rs:903:22
+    |
+903 |     let props = book.get_properties();
+    |                      ^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Properties::get_title`: Use title()
+   --> crates/office2pdf/src/parser/xlsx.rs:912:32
+    |
+912 |         title: non_empty(props.get_title()),
+    |                                ^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Properties::get_creator`: Use creator()
+   --> crates/office2pdf/src/parser/xlsx.rs:913:33
+    |
+913 |         author: non_empty(props.get_creator()),
+    |                                 ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Properties::get_subject`: Use subject()
+   --> crates/office2pdf/src/parser/xlsx.rs:914:34
+    |
+914 |         subject: non_empty(props.get_subject()),
+    |                                  ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Properties::get_description`: Use description()
+   --> crates/office2pdf/src/parser/xlsx.rs:915:38
+    |
+915 |         description: non_empty(props.get_description()),
+    |                                      ^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Properties::get_created`: Use created()
+   --> crates/office2pdf/src/parser/xlsx.rs:916:34
+    |
+916 |         created: non_empty(props.get_created()),
+    |                                  ^^^^^^^^^^^
+
+warning: use of deprecated method `umya_spreadsheet::Properties::get_modified`: Use modified()
+   --> crates/office2pdf/src/parser/xlsx.rs:917:35
+    |
+917 |         modified: non_empty(props.get_modified()),
+    |                                   ^^^^^^^^^^^^
+
+warning: use of deprecated method `quick_xml::events::attributes::Attribute::<'a>::unescape_value`: use `Self::normalized_value()`
+  --> crates/office2pdf/src/parser/xml_util.rs:16:25
+   |
+16 |             return attr.unescape_value().ok().map(|v| v.to_string());
+   |                         ^^^^^^^^^^^^^^
+
+warning: `office2pdf` (lib) generated 243 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.90s

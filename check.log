@@ -1,0 +1,399 @@
+error[E0425]: cannot find type `Spreadsheet` in crate `umya_spreadsheet`
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:293:30
+error[E0425]: cannot find type `Spreadsheet` in crate `umya_spreadsheet`
+   --> crates/office2pdf/src/parser/xlsx.rs:103:33
+error[E0425]: cannot find type `Spreadsheet` in crate `umya_spreadsheet`
+   --> crates/office2pdf/src/parser/xlsx.rs:129:30
+error[E0425]: cannot find type `Spreadsheet` in crate `umya_spreadsheet`
+   --> crates/office2pdf/src/parser/xlsx.rs:902:51
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/chart.rs:297:34
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/chart.rs:516:41
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/chart.rs:607:34
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/chart.rs:642:34
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/chart.rs:674:34
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/chart.rs:729:51
+   --> crates/office2pdf/src/parser/chart.rs:750:51
+  --> crates/office2pdf/src/parser/cond_fmt.rs:50:20
+  --> crates/office2pdf/src/parser/cond_fmt.rs:54:10
+  --> crates/office2pdf/src/parser/cond_fmt.rs:63:13
+  --> crates/office2pdf/src/parser/cond_fmt.rs:66:21
+  --> crates/office2pdf/src/parser/cond_fmt.rs:98:28
+  --> crates/office2pdf/src/parser/cond_fmt.rs:98:43
+   --> crates/office2pdf/src/parser/cond_fmt.rs:157:31
+   --> crates/office2pdf/src/parser/cond_fmt.rs:158:33
+   --> crates/office2pdf/src/parser/cond_fmt.rs:159:53
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/cond_fmt.rs:159:50
+   --> crates/office2pdf/src/parser/xml_util.rs:67:15
+   --> crates/office2pdf/src/parser/cond_fmt.rs:165:18
+   --> crates/office2pdf/src/parser/cond_fmt.rs:166:39
+   --> crates/office2pdf/src/parser/cond_fmt.rs:166:59
+   --> crates/office2pdf/src/parser/cond_fmt.rs:168:53
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/cond_fmt.rs:168:50
+   --> crates/office2pdf/src/parser/xml_util.rs:67:15
+   --> crates/office2pdf/src/parser/cond_fmt.rs:170:35
+   --> crates/office2pdf/src/parser/cond_fmt.rs:171:22
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/cond_fmt.rs:171:16
+   --> crates/office2pdf/src/parser/cond_fmt.rs:174:35
+   --> crates/office2pdf/src/parser/cond_fmt.rs:174:47
+error[E0599]: no method named `is_empty` found for struct `rgb::formats::argb::Argb<T, A>` in the current scope
+   --> crates/office2pdf/src/parser/cond_fmt.rs:175:28
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/cond_fmt.rs:175:56
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/cond_fmt.rs:176:54
+   --> crates/office2pdf/src/parser/xml_util.rs:67:15
+   --> crates/office2pdf/src/parser/cond_fmt.rs:186:22
+error[E0599]: no method named `is_empty` found for struct `rgb::formats::argb::Argb<T, A>` in the current scope
+   --> crates/office2pdf/src/parser/cond_fmt.rs:187:13
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/cond_fmt.rs:190:22
+   --> crates/office2pdf/src/parser/xml_util.rs:67:15
+   --> crates/office2pdf/src/parser/cond_fmt.rs:211:43
+   --> crates/office2pdf/src/parser/cond_fmt.rs:244:29
+   --> crates/office2pdf/src/parser/cond_fmt.rs:253:40
+   --> crates/office2pdf/src/parser/cond_fmt.rs:256:34
+   --> crates/office2pdf/src/parser/cond_fmt.rs:287:25
+   --> crates/office2pdf/src/parser/cond_fmt.rs:296:40
+   --> crates/office2pdf/src/parser/cond_fmt.rs:329:25
+   --> crates/office2pdf/src/parser/cond_fmt.rs:334:10
+   --> crates/office2pdf/src/parser/cond_fmt.rs:354:43
+   --> crates/office2pdf/src/parser/cond_fmt.rs:390:25
+   --> crates/office2pdf/src/parser/cond_fmt.rs:395:10
+   --> crates/office2pdf/src/parser/cond_fmt.rs:407:20
+   --> crates/office2pdf/src/parser/cond_fmt.rs:426:43
+   --> crates/office2pdf/src/parser/cond_fmt.rs:455:34
+   --> crates/office2pdf/src/parser/cond_fmt.rs:457:33
+   --> crates/office2pdf/src/parser/cond_fmt.rs:495:18
+   --> crates/office2pdf/src/parser/cond_fmt.rs:496:30
+   --> crates/office2pdf/src/parser/cond_fmt.rs:500:41
+   --> crates/office2pdf/src/parser/cond_fmt.rs:526:43
+   --> crates/office2pdf/src/parser/cond_fmt.rs:667:21
+   --> crates/office2pdf/src/parser/cond_fmt.rs:668:24
+   --> crates/office2pdf/src/parser/cond_fmt.rs:674:24
+   --> crates/office2pdf/src/parser/cond_fmt.rs:676:70
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/cond_fmt.rs:676:65
+   --> /home/hairbui76/.rustup/toolchains/1.94.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/collections/hash/map.rs:997:12
+  --> crates/office2pdf/src/parser/docx_context_columns.rs:47:54
+  --> crates/office2pdf/src/parser/docx_context_columns.rs:68:58
+  --> crates/office2pdf/src/parser/docx_context_columns.rs:84:54
+   --> crates/office2pdf/src/parser/docx_context_columns.rs:105:58
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/docx_context_shape.rs:346:43
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/docx_context_shape.rs:767:43
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/docx_context_notes.rs:139:30
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/docx_context_notes.rs:214:54
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/docx_context_notes.rs:261:58
+  --> crates/office2pdf/src/parser/docx_context_page_numbers.rs:55:35
+  --> crates/office2pdf/src/parser/docx_context_paragraph_shading.rs:17:18
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/docx_context_vml.rs:105:59
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+  --> crates/office2pdf/src/parser/docx_context_wrap.rs:87:62
+   --> crates/office2pdf/src/parser/docx_sections.rs:191:10
+   --> crates/office2pdf/src/parser/docx_sections.rs:264:47
+  --> crates/office2pdf/src/parser/docx_styles.rs:48:26
+   --> crates/office2pdf/src/parser/docx_text.rs:389:39
+   --> crates/office2pdf/src/parser/docx.rs:150:47
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/metadata.rs:63:41
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/omml/mod.rs:288:49
+   --> crates/office2pdf/src/parser/omml/mod.rs:354:49
+   --> crates/office2pdf/src/parser/omml/mod.rs:363:49
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/omml/mod.rs:390:34
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/omml/mod.rs:465:49
+   --> crates/office2pdf/src/parser/omml/mod.rs:590:49
+   --> crates/office2pdf/src/parser/omml/mod.rs:653:49
+   --> crates/office2pdf/src/parser/omml/mod.rs:699:49
+   --> crates/office2pdf/src/parser/omml/mod.rs:875:43
+   --> crates/office2pdf/src/parser/omml/mod.rs:889:43
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/omml/mod.rs:908:37
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/pptx_slides.rs:190:39
+   --> crates/office2pdf/src/parser/pptx_theme.rs:312:31
+   --> crates/office2pdf/src/parser/smartart.rs:124:49
+   --> crates/office2pdf/src/parser/smartart.rs:156:45
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/smartart.rs:171:37
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/smartart.rs:271:57
+   --> crates/office2pdf/src/parser/smartart.rs:276:57
+   --> crates/office2pdf/src/parser/smartart.rs:288:57
+   --> crates/office2pdf/src/parser/smartart.rs:293:57
+   --> crates/office2pdf/src/parser/smartart.rs:307:53
+  --> crates/office2pdf/src/parser/xlsx_cond_fmt_raw.rs:28:18
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:168:10
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:169:10
+error[E0614]: type `f64` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:167:28
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:177:40
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:177:70
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:177:33
+error[E0599]: no method named `get_cell_collection` found for reference `&umya_spreadsheet::Worksheet` in the current scope
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:187:23
+error[E0282]: type annotations needed
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:188:26
+error[E0282]: type annotations needed
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:191:22
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:269:21
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:270:15
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:271:27
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:297:21
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:298:15
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:299:43
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:303:57
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:304:60
+error[E0282]: type annotations needed
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:306:35
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:343:10
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:344:10
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:346:24
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:346:21
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:347:21
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:347:18
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:365:24
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:367:14
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:368:25
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:368:22
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:371:14
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:372:25
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:372:22
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:375:14
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:376:25
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:376:22
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:379:14
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:380:25
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:380:22
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:515:31
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:515:43
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:516:37
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:516:26
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:568:14
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:569:30
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:639:31
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:641:25
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:641:20
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:647:25
+error[E0614]: type `f64` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:647:20
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:651:45
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:651:75
+error[E0614]: type `f64` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:651:38
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:679:35
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:681:34
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:684:51
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:684:63
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:685:60
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:723:48
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:723:65
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:723:81
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:726:22
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:728:48
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:730:39
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:732:30
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:762:43
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:821:22
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:822:43
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:822:55
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:823:49
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:823:38
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:858:44
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:864:24
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:865:32
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:866:38
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:866:35
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:868:32
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:869:38
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:869:35
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:890:18
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:891:48
+error[E0614]: type `f64` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_cells.rs:891:45
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:217:53
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:222:53
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:263:53
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:268:53
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:328:55
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:343:51
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:352:38
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:579:30
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:594:51
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:603:41
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:761:41
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:767:26
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:770:26
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:861:53
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:905:41
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:922:53
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:954:34
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:970:48
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+error[E0061]: this method takes 1 argument but 0 arguments were supplied
+   --> crates/office2pdf/src/parser/xlsx_drawing.rs:988:41
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/src/events/mod.rs:670:12
+  --> crates/office2pdf/src/parser/xlsx_style.rs:40:22
+  --> crates/office2pdf/src/parser/xlsx_style.rs:41:28
+  --> crates/office2pdf/src/parser/xlsx_style.rs:45:25
+error[E0614]: type `bool` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx_style.rs:45:19
+  --> crates/office2pdf/src/parser/xlsx_style.rs:46:27
+error[E0614]: type `bool` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx_style.rs:46:21
+  --> crates/office2pdf/src/parser/xlsx_style.rs:50:32
+  --> crates/office2pdf/src/parser/xlsx_style.rs:50:53
+  --> crates/office2pdf/src/parser/xlsx_style.rs:54:34
+error[E0614]: type `bool` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx_style.rs:54:28
+  --> crates/office2pdf/src/parser/xlsx_style.rs:64:32
+  --> crates/office2pdf/src/parser/xlsx_style.rs:71:31
+error[E0614]: type `f64` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx_style.rs:71:25
+  --> crates/office2pdf/src/parser/xlsx_style.rs:79:27
+  --> crates/office2pdf/src/parser/xlsx_style.rs:79:39
+error[E0599]: no method named `is_empty` found for struct `rgb::formats::argb::Argb<T, A>` in the current scope
+  --> crates/office2pdf/src/parser/xlsx_style.rs:80:31
+error[E0308]: mismatched types
+  --> crates/office2pdf/src/parser/xlsx_style.rs:80:59
+error[E0308]: mismatched types
+  --> crates/office2pdf/src/parser/xlsx_style.rs:84:26
+  --> crates/office2pdf/src/parser/xml_util.rs:67:15
+   --> crates/office2pdf/src/parser/xlsx_style.rs:124:32
+   --> crates/office2pdf/src/parser/xlsx_style.rs:129:31
+error[E0614]: type `f64` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_style.rs:129:25
+   --> crates/office2pdf/src/parser/xlsx_style.rs:134:14
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_style.rs:134:8
+   --> crates/office2pdf/src/parser/xlsx_style.rs:137:14
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_style.rs:137:8
+   --> crates/office2pdf/src/parser/xlsx_style.rs:141:14
+   --> crates/office2pdf/src/parser/xlsx_style.rs:141:35
+   --> crates/office2pdf/src/parser/xlsx_style.rs:146:14
+error[E0614]: type `bool` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx_style.rs:146:8
+   --> crates/office2pdf/src/parser/xlsx_style.rs:150:33
+   --> crates/office2pdf/src/parser/xlsx_style.rs:150:45
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/xlsx_style.rs:150:28
+   --> crates/office2pdf/src/parser/xlsx_style.rs:162:19
+   --> crates/office2pdf/src/parser/xlsx_style.rs:162:31
+   --> crates/office2pdf/src/parser/xlsx_style.rs:163:25
+error[E0308]: mismatched types
+   --> crates/office2pdf/src/parser/xlsx_style.rs:163:22
+   --> crates/office2pdf/src/parser/xml_util.rs:67:15
+   --> crates/office2pdf/src/parser/xlsx_style.rs:182:35
+   --> crates/office2pdf/src/parser/xlsx_style.rs:184:41
+error[E0599]: no method named `get_argb` found for enum `std::option::Option<T>` in the current scope
+   --> crates/office2pdf/src/parser/xlsx_style.rs:184:53
+   --> /home/hairbui76/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/umya-spreadsheet-3.1.0/src/structs/color.rs:338:5
+   --> crates/office2pdf/src/parser/xlsx_style.rs:195:24
+   --> crates/office2pdf/src/parser/xlsx_style.rs:195:36
+   --> crates/office2pdf/src/parser/xlsx_style.rs:196:43
+   --> crates/office2pdf/src/parser/xlsx_style.rs:197:46
+   --> crates/office2pdf/src/parser/xlsx_style.rs:198:44
+   --> crates/office2pdf/src/parser/xlsx_style.rs:199:45
+   --> crates/office2pdf/src/parser/xlsx_style.rs:219:32
+   --> crates/office2pdf/src/parser/xlsx_style.rs:219:44
+   --> crates/office2pdf/src/parser/xlsx_style.rs:224:38
+   --> crates/office2pdf/src/parser/xlsx_style.rs:231:36
+  --> crates/office2pdf/src/parser/xlsx.rs:46:30
+  --> crates/office2pdf/src/parser/xlsx.rs:55:41
+error[E0614]: type `f64` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx.rs:55:27
+  --> crates/office2pdf/src/parser/xlsx.rs:56:44
+error[E0614]: type `f64` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx.rs:56:30
+  --> crates/office2pdf/src/parser/xlsx.rs:57:42
+error[E0614]: type `f64` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx.rs:57:28
+  --> crates/office2pdf/src/parser/xlsx.rs:58:43
+error[E0614]: type `f64` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx.rs:58:29
+  --> crates/office2pdf/src/parser/xlsx.rs:98:17
+  --> crates/office2pdf/src/parser/xlsx.rs:98:34
+error[E0614]: type `u32` cannot be dereferenced
+  --> crates/office2pdf/src/parser/xlsx.rs:98:10
+error[E0282]: type annotations needed
+   --> crates/office2pdf/src/parser/xlsx.rs:106:46
+   --> crates/office2pdf/src/parser/xlsx.rs:134:21
+   --> crates/office2pdf/src/parser/xlsx.rs:147:28
+   --> crates/office2pdf/src/parser/xlsx.rs:148:49
+error[E0614]: type `u32` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx.rs:148:37
+   --> crates/office2pdf/src/parser/xlsx.rs:150:20
+   --> crates/office2pdf/src/parser/xlsx.rs:203:14
+   --> crates/office2pdf/src/parser/xlsx.rs:204:29
+error[E0614]: type `f64` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx.rs:204:24
+   --> crates/office2pdf/src/parser/xlsx.rs:207:38
+   --> crates/office2pdf/src/parser/xlsx.rs:207:68
+error[E0614]: type `f64` cannot be dereferenced
+   --> crates/office2pdf/src/parser/xlsx.rs:207:31
+   --> crates/office2pdf/src/parser/xlsx.rs:358:27
+   --> crates/office2pdf/src/parser/xlsx.rs:361:53
+   --> crates/office2pdf/src/parser/xlsx.rs:369:42
+   --> crates/office2pdf/src/parser/xlsx.rs:370:42
+   --> crates/office2pdf/src/parser/xlsx.rs:374:40
+   --> crates/office2pdf/src/parser/xlsx.rs:412:36
+   --> crates/office2pdf/src/parser/xlsx.rs:419:28
+   --> crates/office2pdf/src/parser/xlsx.rs:420:58
+   --> crates/office2pdf/src/parser/xlsx.rs:420:75
+   --> crates/office2pdf/src/parser/xlsx.rs:421:58
+   --> crates/office2pdf/src/parser/xlsx.rs:421:75
+   --> crates/office2pdf/src/parser/xlsx.rs:595:32
+   --> crates/office2pdf/src/parser/xlsx.rs:599:27
+   --> crates/office2pdf/src/parser/xlsx.rs:602:53
+   --> crates/office2pdf/src/parser/xlsx.rs:610:42
+   --> crates/office2pdf/src/parser/xlsx.rs:611:42
+   --> crates/office2pdf/src/parser/xlsx.rs:615:40
+   --> crates/office2pdf/src/parser/xlsx.rs:651:36
+   --> crates/office2pdf/src/parser/xlsx.rs:664:49
+   --> crates/office2pdf/src/parser/xlsx.rs:684:28
+   --> crates/office2pdf/src/parser/xlsx.rs:685:58
+   --> crates/office2pdf/src/parser/xlsx.rs:685:75
+   --> crates/office2pdf/src/parser/xlsx.rs:686:58
+   --> crates/office2pdf/src/parser/xlsx.rs:686:75
+  --> crates/office2pdf/src/parser/xml_util.rs:16:25
+error: could not compile `office2pdf` (lib) due to 73 previous errors; 226 warnings emitted
+check-exit=
